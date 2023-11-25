@@ -1,7 +1,7 @@
 function addInCartMessage(title, price) {
     let productName = title;
     let productPrice = price;
-    message;
+    let message;
     message = productName;
     message = message + " ";
     message = message + "за";
