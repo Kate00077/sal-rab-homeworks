@@ -3,14 +3,14 @@ function calcShipping(sum, min, shipping) {
     let freeShippingMinSum = min; // минимальная сумма для бесплатной доставки
     let shippingPrice = shipping; // стоимость доставки
     let shippingSum
-    if (productsSum == 0 || productsSum >= freeShippingMinSum) { shippingSum = 0;  //если productsSum равно 0, то shippingSum присвоить значение 0
+    if (productsSum == 0) {shippingSum == 0;
+    } else if (productsSum >= freeShippingMinSum) {shippingSum == 0;
+    } else {shippingSum == shippingPrice;
+    }  //если productsSum равно 0, то shippingSum присвоить значение 0
     }
       // Задание №2.1. Рассчитать доставку
-       
-    if (productsSum > 0 || productsSum ==freeShippingMinSum) 
-    {shippingSum == shippingPrice;}
-}
-
+        
+    
        // Конец решения задания №2.1.
 
     return shippingSum;
