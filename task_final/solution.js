@@ -32,31 +32,24 @@
 //      ]
 //    }
 // }
-
 function sendRequest(name, phone, address, goods, sum) {
     let data = {
         goods: [], 
         order: {}};
     let countOfGoods = goods.length;
     for (let i = 0; i <= countOfGoods; i += 1) {
-        data.goods.push(goods[i].title);
-    }
-    data.order.address = address;
-    data.order.sum = name + phone + address + goods + sum;
-    data.client = 'Иван';
-    let jsonData = JSON.stringify(data);
+    let goodsData = {
+            title: goods[i].title,
+            count: goods[i].count
+        }; 
+       
+        data.goods.push({title: goods[i].title, count: goods[i].count});
+    };
+    
+    data.order.address = "ул. " + address.street + ", дом " + address.house + " , " + address.entrance + " подъезд," + address.floor + " этаж, " + "кв. " + address.flat;
+    data.order.sum = sum;
+    data.client = name + " " + phone;
+    let jsonData = JSON.stringify({data});
+    
     return jsonData;
 }
-function parseProducts(json) {
-    let data = JSON.parse(json);
-    let products = data.products;
-    return products;
-    }
-function renderProductsCards(json) {
-    clearProducts();
-    products = parseProducts(json);
-    length = products.length;
-    for (let i = 0; i < length; i +=1) {
-    addProduct(products[i]);
-    }
-    }
